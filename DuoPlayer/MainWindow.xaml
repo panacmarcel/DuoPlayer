@@ -1,0 +1,32 @@
+﻿<Window x:Class="DuoPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DuoPlayer"
+        xmlns:vlc="clr-namespace:Vlc.DotNet.Wpf;assembly=Vlc.DotNet.Wpf"
+        mc:Ignorable="d"
+        Title="DuoPlayer" Height="450" Width="800">
+    <Grid>
+        <vlc:VlcControl x:Name="vlcPlayer" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+            <Slider x:Name="timelineSlider" 
+        Minimum="0" Maximum="1" 
+        ValueChanged="timelineSlider_ValueChanged" 
+        Width="750" 
+        Margin="10"
+        PreviewMouseLeftButtonDown="timelineSlider_PreviewMouseLeftButtonDown"
+        PreviewMouseLeftButtonUp="timelineSlider_PreviewMouseLeftButtonUp"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnSelectMP3" Content="1. Select MP3 File" Click="btnSelectMP3_Click" Margin="10"/>
+                <Button x:Name="btnSelectFile" Content="2. Select MP4 File" Click="btnSelectFile_Click" Margin="10"/>
+                <Button x:Name="btnPlay" Content="3. Play" Click="btnPlay_Click" Margin="10"/>
+                <Button x:Name="btnPause" Content="Pause" Click="btnPause_Click" Margin="10"/>
+                <Button x:Name="btnToggleFullScreen" Content="Full Screen" Click="btnToggleFullScreen_Click" Margin="10"/>
+                <Label Margin="20 0 0 0" Content="MP3 Output device:" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <ComboBox x:Name="audioDeviceComboBox" Margin="10" SelectionChanged="audioDeviceComboBox_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
